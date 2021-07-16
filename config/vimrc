@@ -1,0 +1,30 @@
+"Save this file as ~/.vimrc
+source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/ftplugin/man.vim
+"behave xterm
+"behave mswin "Breaks yank
+"Enable plugins, syntax hilighting..
+"filetype plugin indent on
+filetype plugin on
+
+"syn on "Done through plugins
+set syntax=skill "If extension not recognized
+set tabstop=3
+set shiftwidth=3
+set backspace=2 "Backspace deletes
+set hlsearch "Hilight tokens being searched
+set keymodel=startsel,stopsel "Allow <shift>+<arrow keys> to select text
+set ruler "Cursor coordinates
+set selectmode="" "Keeps mouse highlighting from going to select mode (visual mode instead.  Commenting out behaves more like Windows.
+nmap <F8> :TagbarToggle<CR>
+colorscheme fu "desert256 solarized
+
+
+"Filetype associations:
+"NOTE:
+"   To specify associations if not already defined:
+"      au BufRead,BufNewFile *.ino setfiletype cpp
+"   To specify associations irrespective of if already defined (overwrite):
+"      au BufRead,BufNewFile *.ino set filetype=cpp
+"au BufRead,BufNewFile *.ino setfiletype cpp "Done through plugins
+

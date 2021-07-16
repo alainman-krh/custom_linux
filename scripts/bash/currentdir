@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#Does not work if path is absolute!
+scriptpath=$(dirname "$(pwd)/$0")
+echo $scriptpath
+
+#Always returns canonical form:
+scriptpath2=$(readlink -f $(dirname $0))
+echo $scriptpath2
+
+
+#Mimick realpath functionnality:
+realpath () {
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
+echo $(realpath $(dirname $0))

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+eval SRCFILES=$1 #Glob-out list of files
+DESTDIR=$2
+
+for curFile in $SRCFILES; do
+	cmpFile="$DESTDIR/$(basename $curFile)"
+	gvimdiff $curFile $cmpFile
+done
+
+#Last Line

@@ -1,0 +1,24 @@
+"_vimrc file for Windows OS
+source $VIMRUNTIME/mswin.vim
+"On windows, it appears as if the .vim directory is not registered:
+let &runtimepath.=',$HOME/.vim'
+"Notes:
+"	<CTRL>+<g>: for visual mode
+"	Windows: _vimrc must be in [C:\Users\USERNAME]
+"behave xterm
+"behave mswin "Breaks yank
+syn on
+"set fileencoding=utf-8
+set enc=utf-8
+"set guifont=Monaco:h11 "Not unicode-capable
+"set guifont=consolas:h11 "Unicode-capable
+set guifont=DejaVu_Sans_Mono:h10 "Unicode-capable
+"set syntax=skill
+set tabstop=3
+set shiftwidth=3
+set backspace=2 "Backspace deletes
+set hlsearch "Hilight tokens being searched
+set keymodel=startsel,stopsel "Allow <shift>+<arrow keys> to select text
+set ruler "Cursor coordinates
+set selectmode="" "Keeps mouse highlighting from going to select mode (visual mode instead.  Commenting out behaves more like Windows.
+:set wrap linebreak nolist

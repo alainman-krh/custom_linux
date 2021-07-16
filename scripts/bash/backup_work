@@ -1,0 +1,13 @@
+#!/bin/bash
+curDate=$(date +%Y%m%d)
+#srcPath="${HOME}/work"
+#HACK: add "/." in case work is a soft link:
+srcPath="work/." #Under $HOME
+destPath="${HOME}/backup_folder/work_${USER}_${curDate}.tar.gz"
+
+cd $HOME
+#echo "tar -cvzf $destPath $srcPath"
+tar -cvzf $destPath $srcPath
+echo
+echo "Backed-up to $destPath"
+#Last line

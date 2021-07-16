@@ -1,0 +1,10 @@
+#!/bin/bash
+patternList="$1"
+for pattern in $patternList; do
+	fileList=$(find . -name "$pattern")
+	for file in $fileList; do
+		echo "Removing $file"
+		rm $file
+	done
+done
+#Last line

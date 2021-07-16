@@ -1,0 +1,5 @@
+#!/bin/bash
+find . -name "*.v" > cscope.files
+find . -name "*.sv" >> cscope.files
+find . -name "*.svh" >> cscope.files
+#Last line

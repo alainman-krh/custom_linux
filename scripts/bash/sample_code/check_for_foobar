@@ -1,0 +1,3 @@
+#!/bin/bash
+
+(grep -R -io foo; grep -R -io bar) |gvim -

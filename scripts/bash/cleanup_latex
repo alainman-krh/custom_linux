@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ~/work/LaTeX
+
+patternList=(*.aux *.log *.out *.dvi *.synctex.gz)
+#patternList="*.aux *.log *.out *.dvi *.synctex.gz"
+remove_recursive "${patternList[*]}"
+
+echo
+echo Done.
+#Last line

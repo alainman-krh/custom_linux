@@ -1,0 +1,15 @@
+#!/bin/bash
+sep="\n********************************************************************************"
+if [ "$(uname)" = "SunOS" ]; then
+	infoStr="$(uname -a)"
+	infoStr="${infoStr}\n\nOS/Memory Information$sep\n$(/usr/sbin/prtconf|egrep 'Configuration|Memory')"
+	infoStr="${infoStr}\n\nHardware Information$sep\n$(/usr/sbin/prtdiag -v)"
+	infoStr="${infoStr}\n\nMore Details$sep\n$(/usr/sbin/psrinfo -v)"
+else #Linux
+	infoStr="$(uname -a)"
+	infoStr="${infoStr}\n\nMemory Information$sep\n$(cat /proc/meminfo)"
+	infoStr="${infoStr}\n\nCPU Information$sep\n$(cat /proc/cpuinfo)"
+	infoStr="${infoStr}\n\nMore Details$sep\n$(/usr/sbin/x86info -a)"
+fi
+
+echo -e "${infoStr}" |gvim -

@@ -1,0 +1,22 @@
+#!/bin/bash
+#srcroot="$(realpath $(dirname $0))"
+backupfolder="${HOME}/backup_folder"
+srcpath="$1"
+archiveid="$2"
+if [ -z "$srcpath" ] ; then
+	echo "Missing argument: folder to archive"
+	exit 1  #fail
+fi
+if [ -z "$archiveid" ] ; then
+	archiveid="$(basename $srcpath)"
+fi
+
+curdate="$(date +%Y%m%d)"
+srcpath="$(realpath $srcpath)"
+destpath="${backupfolder}/${archiveid}_${USER}_${curdate}.tar.gz"
+
+cd $(dirname $srcpath) #Build archive from directory just above
+tar -cvzf $destpath $(basename $srcpath)
+echo
+echo "Backed-up to $destpath"
+#Last line

@@ -1,0 +1,18 @@
+#!/bin/csh -f
+
+if (${#argv} == 0) then
+   echo "`basename $0` "'"pattern"'
+   echo
+   echo "DESCRIPTION:"
+   echo "   Creates links to all files/directories matching "'"pattern"'", within"
+   echo "   the current directory"
+   echo
+   echo "ERROR:"
+   echo "   You must specify a pattern\!"
+else
+#**************************************************************************************
+   set searchPattern = "$argv[1]"
+#   ls -1 $searchPattern |xargs -L 1 ln -s #UNIX
+   ls -1 $searchPattern |xargs -l1 ln -s #LINUX
+endif
+#Last Line

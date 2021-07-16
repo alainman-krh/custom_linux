@@ -1,0 +1,14 @@
+#Custom aliases
+alias up='cd ..'
+alias cd..='cd ..'
+alias ll='ls -al --group-directories-first'
+alias la='ls -al --group-directories-first'
+
+alias ipython_notebook='cd ~/work/prog/python;ipython notebook'
+alias ijulia_notebook='~/work/prog/julia/ijulia_notebook'
+alias killnotebook='kill $(pgrep -f jupyter)'
+
+alias julia='/usr/local/julia/julia-1.6.1/bin/julia'
+alias killjulia='kill -9 $(pgrep julia)'
+
+#Last Line

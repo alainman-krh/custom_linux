@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Command Line:"
+echo $0
+#Last line

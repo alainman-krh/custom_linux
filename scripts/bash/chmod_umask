@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $# -lt 1 ]; then
+	cmdstr="$(basename $0)"
+	echo "$cmdstr:"
+	echo "Forces umask properties on selected files."
+	echo "(Assumes a umask of 0027)"
+	echo
+	echo "Typical usage:"
+	echo "$cmdstr -R ."
+	exit
+fi
+
+chmod g-w,o-rwx $1 $2
+#Last Line

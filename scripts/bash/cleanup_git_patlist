@@ -1,0 +1,39 @@
+#!/bin/bash
+CMDSTR=$(basename $0)
+lpat=(${@:2}) #Args 2->end
+
+function display_help() {
+	echo "$CMDSTR [D/other] pat1 pat2 pat3 ..."
+	echo "Recursively delete files matching with given pattern"
+	echo
+	echo "Typical usage:"
+	echo "$CMDSTR D *.swp *.tmp"
+}
+
+function _run() {
+	opt=("-name '' ${lpat[@]/#/-o -name }")
+	set -f #no glob
+	find . ${opt[@]}|xargs -L1 "$@"
+}
+
+if [ $# -lt 1 ] || [ "${1^^}" == "H" ]; then
+	display_help
+	exit
+fi
+
+
+if [ "${1^^}" != "D" ]; then
+	echo "$(basename $0) dry run.  Would remove:"
+	_run echo "   "
+
+	echo
+	echo "Re-run with \"D\" to perform clean operation"
+else
+	_run rm
+	echo
+	echo "Remaining ignored files:"
+	git clean -nX
+fi
+
+exit
+#Last line

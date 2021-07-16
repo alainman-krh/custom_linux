@@ -1,0 +1,11 @@
+[core]
+	editor = gvim -f
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[user]
+	name = Alain
+	email = alain@example.com
+[push]
+	default = simple

@@ -1,0 +1,22 @@
+#!/bin/bash
+#Touches all files under the provided path so that the dates corresponds
+#to alphabetic order.
+
+srcPath="$1"
+echo "Preparing to touch all files under '$srcPath'".
+echo "Proceed ? [Y/N]"
+read answer
+answer="$(echo $answer | tr '[:lower:]' '[:upper:]')"
+#echo $answer
+
+if [ "Y" != $answer ]; then
+	echo "Operation cancelled."
+	exit
+fi
+
+find $srcPath -name "*" | sort | xargs -d '\n' touch --no-create
+#find $srcPath -name "*" | sort | xargs -d '\n' echo 
+
+echo
+echo "Re-ordered all files under '$srcPath'"
+#Last line

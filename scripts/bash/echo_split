@@ -1,0 +1,13 @@
+#!/bin/bash
+#Simple debug tool to understand how arguments are sent to commands.
+echo "NARGS = $#"
+
+A=("$@")
+echo
+echo "Display array (loop):"
+echo "NARGS = ${#A[@]}"
+for v in "${A[@]}"; do
+	echo "-> $v"
+done
+
+exit #Last line

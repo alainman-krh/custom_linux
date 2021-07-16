@@ -1,0 +1,5 @@
+#!/bin/bash
+srcFile=$1
+#Not sure why this works; called a URI
+markdown $srcFile |firefox "data:text/html;base64,$(base64 -w 0 <&0)" &
+#Last line

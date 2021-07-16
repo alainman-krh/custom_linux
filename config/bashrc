@@ -1,0 +1,10 @@
+#Custom ~/.bashrc
+#umask 027 #Disable write for group and other
+umask 022 #Disable write for group and other
+
+export PATH=$PATH:$HOME/.custom_linux/bin
+export EDITOR=gvim
+
+source $HOME/.custom_linux/config/aliases
+#echo "bashrc file sourced!"
+#Last Line
